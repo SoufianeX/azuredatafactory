@@ -12,6 +12,10 @@
 					"name": "deathSpecial"
 				},
 				{
+					"dataset": {
+						"referenceName": "ds_country_lookup",
+						"type": "DatasetReference"
+					},
 					"name": "CountryLookup"
 				}
 			],
@@ -25,6 +29,12 @@
 				},
 				{
 					"name": "PivotCounts"
+				},
+				{
+					"name": "LookupContry"
+				},
+				{
+					"name": "select2"
 				}
 			],
 			"scriptLines": [
@@ -42,8 +52,16 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> deathSpecial",
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> CountryLookup",
+				"source(output(",
+				"          country as string,",
+				"          country_code_2_digit as string,",
+				"          country_code_3_digit as string,",
+				"          continent as string,",
+				"          population as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CountryLookup",
 				"deathSpecial filter(continent == \"Europe\" && not (isNull(country_code))) ~> filterEuropeOnly",
 				"filterEuropeOnly select(mapColumn(",
 				"          country,",
@@ -65,7 +83,23 @@
 				"     pivotBy(indicator, ['confirmed cases', 'deaths']),",
 				"     count = sum(daily_count),",
 				"     columnNaming: '$V_$N',",
-				"     lateral: false) ~> PivotCounts"
+				"     lateral: false) ~> PivotCounts",
+				"PivotCounts, CountryLookup lookup(PivotCounts@country == CountryLookup@country,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> LookupContry",
+				"LookupContry select(mapColumn(",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          country = PivotCounts@country,",
+				"          population = PivotCounts@population,",
+				"          cases_count = {confirmed cases_count},",
+				"          source,",
+				"          deaths_count,",
+				"          reported_date",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2"
 			]
 		}
 	}
