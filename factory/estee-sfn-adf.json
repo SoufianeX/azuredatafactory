@@ -1,0 +1,9 @@
+{
+	"name": "estee-sfn-adf",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6d9591a1-4bb5-44c5-9bc2-eefd8c261a88",
+		"tenantId": "015f706a-df77-4c3d-a218-e9e424828ad4"
+	}
+}
