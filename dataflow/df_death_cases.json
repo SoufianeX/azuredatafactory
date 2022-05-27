@@ -19,7 +19,15 @@
 					"name": "CountryLookup"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "CasesAndDeathsSink"
+				}
+			],
 			"transformations": [
 				{
 					"name": "filterEuropeOnly"
@@ -34,7 +42,7 @@
 					"name": "LookupContry"
 				},
 				{
-					"name": "select2"
+					"name": "selectForSink"
 				}
 			],
 			"scriptLines": [
@@ -99,7 +107,16 @@
 				"          reported_date",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select2"
+				"     skipDuplicateMapOutputs: true) ~> selectForSink",
+				"selectForSink sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     rowUrlColumn:'country_code_3_digit',",
+				"     truncate: true,",
+				"     umask: 0666,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> CasesAndDeathsSink"
 			]
 		}
 	}
