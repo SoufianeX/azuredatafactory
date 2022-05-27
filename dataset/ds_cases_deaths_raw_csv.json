@@ -12,7 +12,7 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "cases_deaths.csv",
 				"folderPath": "ecdc",
-				"fileSystem": "raw"
+				"fileSystem": "raw2"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
