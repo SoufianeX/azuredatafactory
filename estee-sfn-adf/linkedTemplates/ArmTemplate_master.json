@@ -19,13 +19,21 @@
 			"type": "string",
 			"defaultValue": "https://esteeazdbstorage.dfs.core.windows.net"
 		},
+		"ls_http_ecde_eu_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/cloudboxacademy/"
+		},
 		"tr_st_ingest_population_pl_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
 		},
-		"ls_http_ecde_eu_properties_typeProperties_url": {
+		"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeUrL": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/cloudboxacademy/"
+			"defaultValue": "covid19/main/ecdc_data/hospital_admissions.csv"
+		},
+		"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
+			"type": "string",
+			"defaultValue": "hospital_admissions.csv"
 		},
 		"containerUri": {
 			"type": "string",
@@ -68,6 +76,12 @@
 					},
 					"tr_st_ingest_population_pl_properties_typeProperties_scope": {
 						"value": "[parameters('tr_st_ingest_population_pl_properties_typeProperties_scope')]"
+					},
+					"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeUrL": {
+						"value": "[parameters('tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeUrL')]"
+					},
+					"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
+						"value": "[parameters('tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName')]"
 					}
 				}
 			},
