@@ -5,12 +5,20 @@
 			"referenceName": "ls_http_ecde_eu",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"relativeURL": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "covid19/main/ecdc_data/cases_deaths.csv"
+				"relativeUrl": {
+					"value": "@dataset().relativeURL",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
