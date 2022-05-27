@@ -60,6 +60,16 @@
 				]
 			}
 		],
+		"variables": {
+			"sourceRelativeUrL": {
+				"type": "String",
+				"defaultValue": "covid19/main/ecdc_data/hospital_admissions.csv"
+			},
+			"sinkFileName": {
+				"type": "String",
+				"defaultValue": "hospital_admissions.csv"
+			}
+		},
 		"annotations": []
 	}
 }
