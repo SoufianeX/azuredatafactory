@@ -47,10 +47,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('lookup file list').output.value",
+						"value": "@activity('Copy ecdc raw data').output.value",
 						"type": "Expression"
 					},
-					"isSequential": true,
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "Copy ecdc raw data",
@@ -118,7 +118,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@pipeline().parameters.sinkFileName",
+											"value": "@item().sinkFileName",
 											"type": "Expression"
 										}
 									}
