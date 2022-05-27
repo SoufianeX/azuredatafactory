@@ -10,6 +10,9 @@
 						"type": "DatasetReference"
 					},
 					"name": "deathSpecial"
+				},
+				{
+					"name": "CountryLookup"
 				}
 			],
 			"sinks": [],
@@ -39,6 +42,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> deathSpecial",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> CountryLookup",
 				"deathSpecial filter(continent == \"Europe\" && not (isNull(country_code))) ~> filterEuropeOnly",
 				"filterEuropeOnly select(mapColumn(",
 				"          country,",
