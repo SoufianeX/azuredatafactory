@@ -3,10 +3,19 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_http_ecde_eu",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"sourceBaseUrl": {
+					"value": "@dataset().baseUrl",
+					"type": "Expression"
+				}
+			}
 		},
 		"parameters": {
 			"relativeURL": {
+				"type": "string"
+			},
+			"baseUrl": {
 				"type": "string"
 			}
 		},
