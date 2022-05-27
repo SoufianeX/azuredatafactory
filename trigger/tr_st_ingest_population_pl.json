@@ -2,7 +2,7 @@
 	"name": "tr_st_ingest_population_pl",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
