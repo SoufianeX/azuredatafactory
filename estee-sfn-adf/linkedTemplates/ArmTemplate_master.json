@@ -19,6 +19,10 @@
 			"type": "string",
 			"defaultValue": "https://esteeazdbstorage.dfs.core.windows.net"
 		},
+		"tr_st_ingest_population_pl_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -54,6 +58,9 @@
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"tr_st_ingest_population_pl_properties_typeProperties_scope": {
+						"value": "[parameters('tr_st_ingest_population_pl_properties_typeProperties_scope')]"
 					}
 				}
 			},

@@ -18,6 +18,10 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://esteeazdbstorage.dfs.core.windows.net"
+		},
+		"tr_st_ingest_population_pl_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
 		}
 	},
 	"variables": {
@@ -50,6 +54,26 @@
 						"type": "SecureString",
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tr_st_ingest_population_pl')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/population/blobs/population_by_age.tsv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('tr_st_ingest_population_pl_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": []
