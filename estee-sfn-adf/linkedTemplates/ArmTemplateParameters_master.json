@@ -11,20 +11,17 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://esteeazdbstorage.dfs.core.windows.net"
 		},
 		"ls_http_ecde_eu_properties_typeProperties_url": {
-			"value": "https://raw.githubusercontent.com/cloudboxacademy/"
+			"value": "@{linkedService().sourceBaseUrl}"
 		},
 		"tr_st_ingest_population_pl_properties_typeProperties_scope": {
 			"value": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
-		},
-		"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeUrL": {
-			"value": "covid19/main/ecdc_data/hospital_admissions.csv"
-		},
-		"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
-			"value": "hospital_admissions.csv"
 		},
 		"containerUri": {
 			"value": ""

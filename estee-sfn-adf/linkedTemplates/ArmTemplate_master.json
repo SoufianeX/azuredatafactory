@@ -15,25 +15,21 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://esteeazdbstorage.dfs.core.windows.net"
 		},
 		"ls_http_ecde_eu_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/cloudboxacademy/"
+			"defaultValue": "@{linkedService().sourceBaseUrl}"
 		},
 		"tr_st_ingest_population_pl_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
-		},
-		"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeUrL": {
-			"type": "string",
-			"defaultValue": "covid19/main/ecdc_data/hospital_admissions.csv"
-		},
-		"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
-			"type": "string",
-			"defaultValue": "hospital_admissions.csv"
 		},
 		"containerUri": {
 			"type": "string",
@@ -68,6 +64,9 @@
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
@@ -76,12 +75,6 @@
 					},
 					"tr_st_ingest_population_pl_properties_typeProperties_scope": {
 						"value": "[parameters('tr_st_ingest_population_pl_properties_typeProperties_scope')]"
-					},
-					"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeUrL": {
-						"value": "[parameters('tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeUrL')]"
-					},
-					"tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
-						"value": "[parameters('tr_ingest_ecdc_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName')]"
 					}
 				}
 			},
