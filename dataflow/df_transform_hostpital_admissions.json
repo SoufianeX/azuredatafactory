@@ -9,13 +9,16 @@
 						"referenceName": "ds_hospital_admissions",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "HospitalAdmissionSource"
 				}
 			],
 			"sinks": [],
 			"transformations": [
 				{
 					"name": "select1"
+				},
+				{
+					"name": "lookup1"
 				}
 			],
 			"scriptLines": [
@@ -30,8 +33,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 select(mapColumn(",
+				"     ignoreNoFilesFound: false) ~> HospitalAdmissionSource",
+				"HospitalAdmissionSource select(mapColumn(",
 				"          country,",
 				"          indicator,",
 				"          reported_date = date,",
@@ -40,7 +43,11 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 lookup(country == ERROR_FUNCTION(''),",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> lookup1"
 			]
 		}
 	}
