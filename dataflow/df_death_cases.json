@@ -21,10 +21,6 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "DelimitedText1",
-						"type": "DatasetReference"
-					},
 					"name": "CasesAndDeathsSink"
 				}
 			],
@@ -79,12 +75,12 @@
 				"          daily_count,",
 				"          source,",
 				"          each(match(name=='date'),",
-				"               'reported'+ '_date' = $$)",
+				"               'reported'+'_date' = $$)",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 pivot(groupBy(country,",
-				"          country_special = country + '_'+ country_code,",
+				"          country_special = country+'_'+country_code,",
 				"          population,",
 				"          source,",
 				"          reported_date),",
@@ -112,11 +108,10 @@
 				"     validateSchema: false,",
 				"     rowUrlColumn:'country_code_3_digit',",
 				"     truncate: true,",
-				"     umask: 0666,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> CasesAndDeathsSink"
+				"     skipDuplicateMapOutputs: true,",
+				"     preCommands: [],",
+				"     postCommands: []) ~> CasesAndDeathsSink"
 			]
 		}
 	}
