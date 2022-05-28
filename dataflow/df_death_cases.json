@@ -19,11 +19,7 @@
 					"name": "CountryLookup"
 				}
 			],
-			"sinks": [
-				{
-					"name": "CasesAndDeathsSink"
-				}
-			],
+			"sinks": [],
 			"transformations": [
 				{
 					"name": "filterEuropeOnly"
@@ -103,15 +99,7 @@
 				"          reported_date",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> selectForSink",
-				"selectForSink sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     rowUrlColumn:'country_code_3_digit',",
-				"     truncate: true,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     preCommands: [],",
-				"     postCommands: []) ~> CasesAndDeathsSink"
+				"     skipDuplicateMapOutputs: true) ~> selectForSink"
 			]
 		}
 	}
