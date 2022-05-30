@@ -14,14 +14,14 @@
 		"AzureDatabricks1_accessToken": {
 			"value": ""
 		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://esteeazdbstorage.dfs.core.windows.net"
 		},
 		"ls_http_ecde_eu_properties_typeProperties_url": {
 			"value": "@{linkedService().sourceBaseUrl}"
-		},
-		"tr_st_ingest_population_pl_properties_typeProperties_scope": {
-			"value": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
 		},
 		"tr_population_data_arrived_properties_typeProperties_scope": {
 			"value": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
