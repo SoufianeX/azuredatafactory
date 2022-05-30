@@ -23,6 +23,9 @@
 		"tr_st_ingest_population_pl_properties_typeProperties_scope": {
 			"value": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
 		},
+		"tr_population_data_arrived_properties_typeProperties_scope": {
+			"value": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
+		},
 		"containerUri": {
 			"value": ""
 		},

@@ -31,6 +31,10 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
 		},
+		"tr_population_data_arrived_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/0d6315c8-f77e-4544-9af8-19c5888d5716/resourceGroups/AirfoodDev/providers/Microsoft.Storage/storageAccounts/airfoodblobstoragedev"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -75,6 +79,9 @@
 					},
 					"tr_st_ingest_population_pl_properties_typeProperties_scope": {
 						"value": "[parameters('tr_st_ingest_population_pl_properties_typeProperties_scope')]"
+					},
+					"tr_population_data_arrived_properties_typeProperties_scope": {
+						"value": "[parameters('tr_population_data_arrived_properties_typeProperties_scope')]"
 					}
 				}
 			},
